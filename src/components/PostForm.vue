@@ -1,18 +1,16 @@
 <template>
   <form class="form" @submit.prevent>
     <h4> Создание поста </h4>
-    <input
-      class="input"
+    <my-input
       type="text"
       placeholder="Название"
       v-model="post.title"
-    >
-    <input
-      class="input"
+    />
+    <my-input
       type="text"
       placeholder="Описание"
       v-model="post.body"
-    >
+    />
     <my-button
       @click="createPost"
       style="align-self: flex-end; margin-top: 15px"
@@ -50,12 +48,6 @@ export default {
 </script>
 
 <style scoped>
-.input {
-  width: 100%;
-  padding: 10px 15px;
-  border: 1px solid teal;
-  margin-top: 15px;
-}
 .form {
   display: flex;
   flex-direction: column;
