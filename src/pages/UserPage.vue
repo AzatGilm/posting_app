@@ -1,7 +1,11 @@
 <template>
   <div>
     <h1> Страница с постами </h1>
-    <my-input v-model="searchQuery"  placeholder="Поиск..."/>
+    <my-input
+      v-focus
+      v-model="searchQuery"
+      placeholder="Поиск..."
+    />
     <div class="app__btns">
       <my-button
         @click="showDialog"
@@ -39,7 +43,7 @@
         {{pageNumber}}
       </div>
     </div> -->
-    <div ref="observer" class="observer"></div>
+    <div v-intersection="loadMorePosts" class="observer"></div>
   </div>
 </template>
 
@@ -119,17 +123,17 @@ export default {
   },
   mounted () {
     this.fetchPosts()
-    const options = {
-      rootMargin: '0px',
-      threshold: 1.0
-    }
-    const callback = (entries, observer) => {
-      if (entries[0].isIntersecting && this.page < this.totalPages) {
-        this.loadMorePosts()
-      }
-    }
-    const observer = new IntersectionObserver(callback, options)
-    observer.observe(this.$refs.observer)
+    // const options = {
+    //   rootMargin: '0px',
+    //   threshold: 1.0
+    // }
+    // const callback = (entries, observer) => {
+    //   if (entries[0].isIntersecting && this.page < this.totalPages) {
+    //     this.loadMorePosts()
+    //   }
+    // }
+    // const observer = new IntersectionObserver(callback, options)
+    // observer.observe(this.$refs.observer)
   },
   computed: {
     sortedPosts () {
