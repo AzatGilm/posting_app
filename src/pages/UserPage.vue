@@ -30,7 +30,7 @@
       v-if="!isPostLoading"
     />
     <div v-else> Идет загрузка... </div>
-    <!-- <div class="page__wrapper" >
+      <!-- <div class="page__wrapper" >
       <div
         class="page"
         v-for="pageNumber in totalPages"

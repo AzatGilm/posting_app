@@ -19,6 +19,12 @@
       >
         Store
       </my-button>
+      <my-button
+        @click="$router.push('/composition')"
+        style="margin-left: 20px"
+      >
+        Composition
+      </my-button>
     </div>
   </div>
 </template>
